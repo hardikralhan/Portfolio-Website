@@ -23,9 +23,9 @@ export default function useLocoScroll(start){
                 multiplier: 1,
             },
         })
-        // setTimeout(() => {
-        //     locoScroll.update();
-        // }, 500); 
+        setTimeout(() => {
+            locoScroll.update();
+        }, 500); 
         
     },[start])
         
