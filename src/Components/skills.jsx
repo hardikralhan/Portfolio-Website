@@ -7,7 +7,7 @@ export default function Skills() {
     <section data-scroll-section id="skills">
       <div className=" px-5 py-10  ">
         <div className="text-center mb-12">
-          <ChipIcon  className="w-10 inline-block mb-4 text-purple-700" />
+          <ChipIcon  className="w-10 inline-block mb-4 text-light_purp" />
           <h1  className="text-center text-5xl lg:text-3xl text-white mb-4">
             <b>Skills & Technologies</b>
           </h1>

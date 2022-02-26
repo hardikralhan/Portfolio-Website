@@ -26,7 +26,7 @@ export default function Contact() {
 
   return (
     <section data-scroll-section id="contact" className="">
-      <div className="container px-5 py-10 mx-auto lg:flex">
+      <div className="container px-5 py-10 mx-auto lg:flex ">
         <div className="shrink-0 w-full max-h-full lg:w-1/2 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
           <iframe
             width="100%"
@@ -53,9 +53,9 @@ export default function Contact() {
               <h2 className="title-font font-semibold text-white tracking-widest text-xs">
                 EMAIL
               </h2>
-              <a className="text-indigo-400 leading-relaxed">
+              <p className="text-indigo-400 leading-relaxed">
                 hardikralhan66@gmail.com
-              </a>
+              </p>
               <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
                 PHONE
               </h2>

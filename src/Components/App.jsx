@@ -7,6 +7,7 @@ import Work from "./Work";
 import Skills from "./skills";
 import Contact from "./Contact";
 import About from "./About";
+import Footer from "./Footer";
 
 function App() {
     // load area - start
@@ -40,6 +41,7 @@ function App() {
         <About />
         <Skills />
         <Contact />
+        <Footer />
       </div>}
 
       

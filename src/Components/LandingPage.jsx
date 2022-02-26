@@ -14,20 +14,20 @@ export default function LandingPage(){
               <h1 className=" font-extrabold text-8xl mb-4 text-white">
                 hardik
               </h1>
-              <div className=" font-extrabold -ml-2 text-8xl mb-4 text-purple-700">
+              <div className=" font-extrabold -ml-2 text-8xl mb-4 text-light_purp">
               <Typed
                 strings={[".is()"]}
                 typeSpeed={100}
               />
               </div>
             </div>
-            {/* <div className="-mt-6 leading-relaxed text-purple-700 text-5xl">
+            {/* <div className="-mt-6 leading-relaxed text-light_purp text-5xl">
             <Typed
                 strings={["Hardik Ralhan"]}
                 typeSpeed={40}
               />
             </div> */}
-            <p className="-mt-6 leading-relaxed text-purple-700 text-5xl">
+            <p className="-mt-6 leading-relaxed text-light_purp text-5xl">
             Hardik Ralhan</p>
             <p className=" leading-relaxed text-slate-400 text-3xl ">
               /* 

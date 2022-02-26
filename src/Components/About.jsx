@@ -27,7 +27,6 @@ export default function About(){
                         </p>
                         <div className="flex">
                         <a href={Pdf} className="flex text-black bg-light_purp border-0 pt-[0.15rem] pb-[0.15rem] px-4 focus:outline-none hover:bg-white duration-300 rounded-2xl font-bold text-lg" >resume <BiDownload className="mt-[0.35rem] ml-2"></BiDownload></a>
-                        {/* <div className=""></div> */}
                         </div>
                     </div>
                 </div>
