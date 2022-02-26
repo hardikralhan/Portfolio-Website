@@ -15,7 +15,7 @@ export default function useLocoScroll(start){
             smartphone:{
                 breakpoint:0,
                 smooth: true,
-                multiplier: 5,
+                multiplier: 2,
             },
             tablet:{
                 breakpoint:0,
