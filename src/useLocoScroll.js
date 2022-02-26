@@ -14,8 +14,8 @@ export default function useLocoScroll(start){
             class: "is-reveal",
             mobile:{
                 breakpoint:0,
-                smooth: true,
-            multiplier: 3,
+                // smooth: true,
+            multiplier: 2,
             // class: "is-reveal",
             },
             tablet:{
