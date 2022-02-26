@@ -14,16 +14,19 @@ export default function useLocoScroll(start){
             class: "is-reveal",
             smartphone:{
                 breakpoint:0,
-                smooth: false,
+                smooth: true,
                 multiplier: 1,
             },
             tablet:{
                 breakpoint:0,
-                smooth: false,
+                smooth: true,
                 multiplier: 1,
             },
         })
+        setTimeout(() => {
+            locoScroll.update();
+        }, 500); 
         
     },[start])
-    
+        
 }
