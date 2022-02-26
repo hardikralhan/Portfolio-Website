@@ -26,7 +26,7 @@ export default function Contact() {
 
   return (
     <section data-scroll-section id="contact" className="">
-      <div className="container px-5 py-10 mx-auto lg:flex ">
+      <div className="container px-5 py-10 mx-auto lg:flex mb-24">
         <div className="shrink-0 w-full max-h-full lg:w-1/2 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
           <iframe
             width="100%"
@@ -41,22 +41,22 @@ export default function Contact() {
           />
           <div className="bg-gray-900 relative flex flex-wrap py-10 rounded shadow-md ">
             <div className="w-1/2 px-6 ">
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs">
+              <h2 className="title-font font-semibold text-white tracking-widest text-2xl lg:text-xs">
                 ADDRESS
               </h2>
-              <p className="mt-1 text-white">
+              <p className="mt-1 text-white text-xl lg:text-xs">
                King Koti,Basheerbagh <br />
                 Hyderabad 500001
               </p>
             </div>
-            <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs">
+            <div className="lg:w-1/2 px-6 mt-4 text-2xl lg:text-xs lg:mt-0">
+              <h2 className="title-font font-semibold text-white tracking-widest text-2xl lg:text-xs">
                 EMAIL
               </h2>
               <p className="text-indigo-400 leading-relaxed">
                 hardikralhan66@gmail.com
               </p>
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
+              <h2 className="title-font text-2xl lg:text-xs font-semibold text-white tracking-widest mt-4">
                 PHONE
               </h2>
               <p className="leading-relaxed text-indigo-400">+91991252862</p>
@@ -69,14 +69,14 @@ export default function Contact() {
           onSubmit={handleSubmit}
           className="w-full flex flex-col ml-auto md:py-8 mt-8 md:mt-0">
           <h2 data-scroll data-scroll-direction="horizontal" data-scroll-speed="-1"
-           className="text-white text-6xl md:text-4xl mb-1 font-bold">
+           className="text-white lg:text-6xl text-7xl mb-1 font-bold">
             Hire Me
           </h2>
-          <p data-scroll data-scroll-direction="horizontal" data-scroll-speed="1" className="leading-relaxed mb-5 text-slate-400 text-xl lg:text-2xl">
+          <p data-scroll data-scroll-direction="horizontal" data-scroll-speed="1" className="leading-relaxed mb-5 text-slate-400 text-4xl lg:text-2xl">
           /* <br/>I am available for full time, part time and freelance work. Connect with me via email: <i><b>hardikralhan66@gmail.com</b></i><br /> */
           </p>
           <div className="relative mb-4">
-            <label htmlFor="name" className="leading-7 text-xl text-gray-400">
+            <label htmlFor="name" className="leading-7 lg:text-xl text-4xl text-gray-400">
               Name
             </label>
             <input
@@ -89,7 +89,7 @@ export default function Contact() {
             />
           </div>
           <div className="relative mb-4">
-            <label htmlFor="email" className="leading-7 text-xl text-gray-400">
+            <label htmlFor="email" className="leading-7 lg:text-xl text-4xl text-gray-400">
               Email
             </label>
             <input
@@ -108,7 +108,7 @@ export default function Contact() {
           <div className="relative mb-4">
             <label
               htmlFor="message"
-              className="leading-7 text-xl text-gray-400">
+              className="leading-7 lg:text-xl text-4xl text-gray-400">
               Message
             </label>
             <textarea
@@ -121,7 +121,7 @@ export default function Contact() {
           </div>
           <button
             type="submit"
-            className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-xl">
+            className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded lg:text-xl text-3xl">
             Submit
           </button>
         </form>

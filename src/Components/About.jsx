@@ -10,23 +10,23 @@ export default function About(){
       return(
         <section data-scroll-section id="about">
              <div className="mb-6 mt-6 box-border ">
-                <h2 className=" opacity-0 transition-opacity duration-1000 text-center text-5xl lg:text-3xl text-white mb-8 font-bold" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-3" data-scroll-class="about-p-scroll">{title}</h2>
+                <h2 className=" opacity-0 transition-opacity duration-1000 text-center text-6xl lg:text-3xl text-white mb-8 font-bold" data-scroll data-scroll-direction="horizontal" data-scroll-speed="-3" data-scroll-class="about-p-scroll">{title}</h2>
                     <div className="lg:flex ">
                         <div className="">
                         <img 
-                            className="container rounded-full m-auto w-72 lg:ml-32 border-4 border-slate-500"
+                            className="container rounded-full m-auto lg:w-72 w-96 lg:ml-32 border-4 border-slate-500"
                             src={me}
                             alt="me "
                         />
                         </div>
                 
                     <div data-scroll data-scroll-speed="1" data-scroll-class="about-p-scroll"
-                     className="text-slate-400 text-3xl lg:text-2xl leading-relaxed  ml-16 lg:ml-26 lg:mt-16 opacity-0 transition-opacity duration-[1300ms]">
+                     className="text-slate-400 text-4xl lg:text-2xl leading-relaxed  ml-16 lg:ml-26 lg:mt-16 opacity-0 transition-opacity duration-[1300ms]">
                         <p>
                         /* <br/> {description} <br/> /*
                         </p>
                         <div className="flex">
-                        <a href={Pdf} className="flex text-black bg-light_purp border-0 pt-[0.15rem] pb-[0.15rem] px-4 focus:outline-none hover:bg-white duration-300 rounded-2xl font-bold text-lg" >resume <BiDownload className="mt-[0.35rem] ml-2"></BiDownload></a>
+                        <a href={Pdf} className="flex text-black bg-light_purp border-0 lg:pt-[0.15rem] lg:pb-[0.15rem] py-1 lg:px-4 px-5 focus:outline-none hover:bg-white duration-300 rounded-2xl font-bold lg:text-lg text-4xl" >resume <BiDownload className="mt-[0.35rem] ml-2"></BiDownload></a>
                         </div>
                     </div>
                 </div>

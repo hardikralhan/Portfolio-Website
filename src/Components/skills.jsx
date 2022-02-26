@@ -8,10 +8,10 @@ export default function Skills() {
       <div className=" px-5 py-10  ">
         <div className="text-center mb-12">
           <ChipIcon  className="w-10 inline-block mb-4 text-light_purp" />
-          <h1  className="text-center text-5xl lg:text-3xl text-white mb-4">
+          <h1  className="text-center text-6xl lg:text-3xl text-white mb-4">
             <b>Skills & Technologies</b>
           </h1>
-          <p className=" text-slate-400 mt-8 text-3xl lg:text-xl leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
+          <p className=" text-slate-400 mt-8 text-4xl lg:text-xl leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
            /* <br /> I think it is possible for an ordinary person to choose to be an <b>extraordinary</b> <br />*/
           </p>
         </div>
@@ -21,7 +21,7 @@ export default function Skills() {
               key={skill} className="custom-p p-3 lg:w-1/2 w-full">
               <div className="container bg-gray-800 rounded flex p-10 lg:p-4 lg:h-full items-center ml-20 lg:mr-40 lg:ml-36">
                 <BadgeCheckIcon className="text-green-400 w-10 h-10 lg:w-6 lg:h-6 flex-shrink-0 mr-4" />
-                <span className="lg:title-font lg:font-medium lg:text-xl text-3xl text-white">
+                <span className="lg:title-font lg:font-medium lg:text-xl text-4xl text-white">
                   {skill}
                 </span>
               </div>

@@ -12,19 +12,21 @@ export default function useLocoScroll(start){
             smooth: true,
             multiplier: 1,
             class: "is-reveal",
-            mobile:{
+            touchMultiplier: 1.7,
+            smartphone:{
                 breakpoint:0,
-                // smooth: true,
-            multiplier: 2,
-            // class: "is-reveal",
+                smooth: true,
+                multiplier: 5,
+                class: "is-reveal",
             },
             tablet:{
                 breakpoint:0,
                 smooth: true,
-            multiplier: 1,
-            // class: "is-reveal",
+                multiplier: 5,
+                class: "is-reveal",
             },
         })
+        
     },[start])
     
 }

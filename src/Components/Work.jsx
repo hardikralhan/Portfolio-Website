@@ -9,13 +9,13 @@ export default function Work() {
       <div className="text-gray-400 px-5 py-10 mx-auto text-center lg:px-40">
         <div className="flex flex-col w-full mb-16">
           <CodeIcon className="mx-auto inline-block w-10 mb-4" />
-          <h1 className="font-bold text-5xl lg:text-3xl  title-font mb-6 text-white">
+          <h1 className="font-bold text-6xl lg:text-3xl  title-font mb-6 text-white">
             Apps I've Built
           </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-2xl lg:text-2xl">
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-4xl lg:text-2xl">
             /*<br/>Apps that I have build in recent months <br/>*/
           </p>
-          <p className="mt-3">//Click on the image to view the source code</p>
+          <p className="mt-3 lg:text-2xl text-3xl">//Click on the image to view the source code</p>
         </div>
         <div className="lg:flex lg:flex-wrap my-6 lg:-m-4 ml-32 mr-32">
           {projects.map((project,index) => (
