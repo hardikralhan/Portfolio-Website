@@ -14,12 +14,12 @@ export default function useLocoScroll(start){
             class: "is-reveal",
             smartphone:{
                 breakpoint:0,
-                smooth: true,
-                multiplier: 2,
+                smooth: false,
+                multiplier: 1,
             },
             tablet:{
                 breakpoint:0,
-                smooth: true,
+                smooth: false,
                 multiplier: 1,
             },
         })
