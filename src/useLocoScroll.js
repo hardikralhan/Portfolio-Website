@@ -17,12 +17,14 @@ export default function useLocoScroll(start){
                 breakpoint:0,
                 smooth: true,
                 multiplier: 5,
+                touchMultiplier: 1.7,
                 class: "is-reveal",
             },
             tablet:{
                 breakpoint:0,
                 smooth: true,
                 multiplier: 5,
+                touchMultiplier: 1.7,
                 class: "is-reveal",
             },
         })
