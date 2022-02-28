@@ -12,15 +12,18 @@ export default function useLocoScroll(start){
             smooth: true,
             multiplier: 1,
             class: "is-reveal",
+            reloadOnContextChange: true,
+            touchMultiplier: 2,
+            smoothMobile: 0,
             mobile:{
                 breakpoint:0,
                 smooth: true,
-                multiplier: 1,
+                // multiplier: 1,
             },
             tablet:{
                 breakpoint:0,
                 smooth: true,
-                multiplier: 1,
+                // multiplier: 1,
             },
         })
         setTimeout(() => {
