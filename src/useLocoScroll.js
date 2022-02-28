@@ -18,11 +18,13 @@ export default function useLocoScroll(start){
             mobile:{
                 breakpoint:0,
                 smooth: true,
+                touchMultiplier: 3,
                 // multiplier: 1,
             },
             tablet:{
                 breakpoint:0,
                 smooth: true,
+                touchMultiplier: 2,
                 // multiplier: 1,
             },
         })
