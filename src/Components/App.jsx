@@ -13,7 +13,7 @@ function App() {
     // load area - start
     const [preload,setPreload]= useState(true);
     useLocoScroll(!preload);
-    const [timer,setTimer]= useState(1);
+    const [timer,setTimer]= useState(2);
     const id = useRef(null);
     const clear = () =>{
         window.clearInterval(id.current);  // it will clear the timer

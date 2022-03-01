@@ -1,5 +1,5 @@
 import me from "../me.jpg";
-import Pdf from "../papaji.pdf";
+import resume from "../Resume.pdf";
 import {BiDownload} from "react-icons/bi";
 
 export default function About(){
@@ -26,7 +26,7 @@ export default function About(){
                         /* <br/> {description} <br/> /*
                         </p>
                         <div className="flex">
-                        <a href={Pdf} className="flex text-black bg-light_purp border-0 lg:pt-[0.15rem] lg:pb-[0.15rem] py-1 lg:px-4 px-5 focus:outline-none hover:bg-white duration-300 rounded-2xl font-bold lg:text-lg text-4xl" >resume <BiDownload className="mt-[0.35rem] ml-2"></BiDownload></a>
+                        <a href={resume} className="flex text-black bg-light_purp border-0 lg:pt-[0.15rem] lg:pb-[0.15rem] py-1 lg:px-4 px-5 focus:outline-none hover:bg-white duration-300 rounded-2xl font-bold lg:text-lg text-4xl" >resume <BiDownload className="mt-[0.35rem] ml-2"></BiDownload></a>
                         </div>
                     </div>
                 </div>
