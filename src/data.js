@@ -11,13 +11,13 @@ export const projects = [
     },
     {
       id:2,
-      title: "Portfolio Website",
-      subtitle: "Tech Stack: React Tailwind CSS ",
+      title: "Multi Level Marketing Project",
+      subtitle: "Tech Stack: MERN Stack ",
       description:
-        "Made this amazing and beautiful portfolio website using react tailwindcss, used different libraries like tsparticles,locomotive-scroll",
-      image: require("./proj.jpg"),
+        "I've accomplished the successful launch of a Multi-Level Marketing (MLM) project from scratch, demonstrating my ability to tackle complex projects and deliver results.",
+      image: require("./DU-dashboard.JPG"),
       image_col:"black",
-      link: "",
+      link: "https://earn.du-coin.io/",
     },
     {
       id:3,
@@ -40,4 +40,4 @@ export const projects = [
       link: "https://github.com/hardikralhan/To-Do-List",
     },
   ];
-  export const skills = ["Java","SpringBoot","JavaScript","React","TailwindCSS","SQL","MongoDB"];
+  export const skills = ["Java","SpringBoot","JavaScript","React","TailwindCSS","SQL","MongoDB", "NodeJS", "ExpressJS", "SQL"];

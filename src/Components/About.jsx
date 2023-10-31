@@ -1,4 +1,4 @@
-import me from "../me.jpg";
+import me from "../me.png";
 import resume from "../Resume.pdf";
 import {BiDownload} from "react-icons/bi";
 

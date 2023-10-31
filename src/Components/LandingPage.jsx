@@ -32,17 +32,18 @@ export default function LandingPage(){
             <p className=" leading-relaxed text-slate-400 text-3xl ">
               /* 
             </p><p className="-mt-3  leading-relaxed text-slate-400 text-3xl">
-            A Developer and
+            Transforming Ideas |
             </p>
             <p className="-mt-3  leading-relaxed text-slate-400 text-3xl">
-            a Student studying
+            Full-Stack Developer |
             </p>
             <p className="-mt-3  leading-relaxed text-slate-400 text-3xl">
-            at <i><u><a href="https://www.osmania.ac.in/">Osmania University</a></u></i>,
+            Software Developer, Emoneeds (Gurgaon) |
+            {/* at <i><u><a href="https://www.osmania.ac.in/">Osmania University</a></u></i>, */}
             </p>
-            <p className="-mt-3 leading-relaxed text-slate-400 text-3xl">
+            {/* <p className="-mt-3 leading-relaxed text-slate-400 text-3xl">
             Hyderabad
-            </p>
+            </p> */}
             <p className="-mt-3 mb-8 leading-relaxed text-slate-400 text-3xl">
             */
             </p>
