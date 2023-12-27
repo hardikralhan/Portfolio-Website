@@ -5,7 +5,7 @@ import {BiDownload} from "react-icons/bi";
 export default function About(){
     let title = "</About Me>",
     description =
-      "A student passionate about tech. I'm quietly confident, naturally curious, and perpetually working on improving my chops one problem at a time. Other than that, I love to workout plus love to play with dogs";
+      "Dedicated and passionate full-stack developer with 18 months of hands-on experience. Proficient in crafting robust and scalable solutions, I thrive on tackling complex challenges. Committed to continuous learning and staying abreast of the latest technologies, I bring a dynamic and innovative approach to every project.";
 
       return(
         <section data-scroll-section id="about">
