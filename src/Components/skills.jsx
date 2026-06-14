@@ -1,34 +1,118 @@
-import { BadgeCheckIcon, ChipIcon } from "@heroicons/react/solid";
-import React from "react";
-import { skills } from "../data";
+import { motion } from 'framer-motion';
+import { skillCategories } from '../data';
+
+const badgeVariants = {
+  hidden: { opacity: 0, scale: 0.85 },
+  visible: (i) => ({
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.3, delay: i * 0.04 },
+  }),
+};
+
+function SkillCard({ category, cardIndex }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: cardIndex * 0.1 }}
+      className="skill-category-card p-6"
+    >
+      {/* Header */}
+      <div className="flex items-center gap-3 mb-5">
+        <div
+          className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+          style={{ background: `${category.color}18`, border: `1px solid ${category.color}40` }}
+        >
+          {category.icon}
+        </div>
+        <div>
+          <h3 className="font-space font-bold text-white text-base">{category.title}</h3>
+          <div className="h-0.5 w-10 rounded mt-1" style={{ background: category.color }} />
+        </div>
+      </div>
+
+      {/* Skills */}
+      <div className="flex flex-wrap gap-2">
+        {category.skills.map((skill, i) => (
+          <motion.span
+            key={skill}
+            custom={i}
+            variants={badgeVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="inline-block px-3 py-1 rounded-full text-xs font-mono font-medium transition-all duration-200 cursor-default"
+            style={{
+              background: `${category.color}12`,
+              border: `1px solid ${category.color}30`,
+              color: category.color,
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = `${category.color}28`;
+              e.currentTarget.style.borderColor = `${category.color}60`;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = `${category.color}12`;
+              e.currentTarget.style.borderColor = `${category.color}30`;
+            }}
+          >
+            {skill}
+          </motion.span>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Skills() {
   return (
-    <section data-scroll-section id="skills">
-      <div className=" px-5 py-10  ">
-        <div className="text-center mb-12">
-          <ChipIcon  className="w-10 inline-block mb-4 text-light_purp" />
-          <h1  className="text-center text-6xl lg:text-3xl text-white mb-4">
-            <b>Skills & Technologies</b>
-          </h1>
-          <p className=" text-slate-400 mt-8 text-4xl lg:text-xl leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
-           /* <br /> I think it is possible for an ordinary person to choose to be an <b>extraordinary</b> <br />*/
+    <section id="skills" className="relative overflow-hidden">
+      <div className="section-container">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
+          <p className="section-label mb-3">What I Work With</p>
+          <h2 className="section-title mb-4">
+            Skills &amp; <span className="gradient-text">Technologies</span>
+          </h2>
+          <div className="w-16 h-1 rounded-full mx-auto" style={{ background: 'linear-gradient(90deg, #7c3aed, #06b6d4)' }} />
+          <p className="text-gray-400 mt-6 max-w-xl mx-auto text-sm leading-relaxed">
+            From multi-agent AI orchestration to cloud deployments — the full stack of tools I use to ship
+            production systems.
           </p>
-        </div>
-        <div className="lg:flex lg:flex-wrap lg:w-4/5 max-w-full lg:mx-auto mb-2 -mx-2 lg:-ml-0 ">
-          {skills.map((skill,index) => (
-            <div data-scroll data-scroll-speed={((index)%2)===0? "-1":"1"} data-scroll-direction="horizontal" data-scroll-class="about-p-scroll"
-              key={skill} className="custom-p p-3 lg:w-1/2 w-full">
-              <div className="container bg-gray-800 rounded flex p-10 lg:p-4 lg:h-full items-center ml-20 lg:mr-40 lg:ml-36">
-                <BadgeCheckIcon className="text-green-400 w-10 h-10 lg:w-6 lg:h-6 flex-shrink-0 mr-4" />
-                <span className="lg:title-font lg:font-medium lg:text-xl text-4xl text-white">
-                  {skill}
-                </span>
-              </div>
-            </div>
+        </motion.div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {skillCategories.map((cat, i) => (
+            <SkillCard key={cat.id} category={cat} cardIndex={i} />
           ))}
         </div>
+
+        {/* Bottom note */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center text-gray-600 text-xs font-mono mt-10"
+        >
+          {'/* always learning · currently exploring Claude API + MCP + agent-to-agent patterns */'}
+        </motion.p>
       </div>
+
+      {/* Bg accents */}
+      <div className="absolute top-0 left-0 w-80 h-80 rounded-full pointer-events-none -z-10"
+        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)' }} />
+      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full pointer-events-none -z-10"
+        style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.05) 0%, transparent 70%)' }} />
     </section>
   );
 }

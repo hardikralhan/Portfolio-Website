@@ -1,131 +1,251 @@
-import React from "react";
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { AiFillGithub, AiFillLinkedin, AiOutlineMail, AiOutlinePhone } from 'react-icons/ai';
+import { HiLocationMarker, HiPaperAirplane } from 'react-icons/hi';
+
+const contactInfo = [
+  {
+    icon: <AiOutlineMail className="text-xl" />,
+    label: 'Email',
+    value: 'hardikralhan66@gmail.com',
+    href: 'mailto:hardikralhan66@gmail.com',
+    color: '#7c3aed',
+  },
+  {
+    icon: <AiOutlinePhone className="text-xl" />,
+    label: 'Phone',
+    value: '+91 9991252862',
+    href: 'tel:+919991252862',
+    color: '#06b6d4',
+  },
+  {
+    icon: <HiLocationMarker className="text-xl" />,
+    label: 'Location',
+    value: 'India · Remote',
+    href: null,
+    color: '#10b981',
+  },
+];
 
 export default function Contact() {
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [message, setMessage] = React.useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
 
   function encode(data) {
     return Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-      )
-      .join("&");
+      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", name, email, message }),
-    })
-      .then(() => alert("Message sent!"))
-      .catch((error) => alert(error));
+    setStatus('sending');
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'contact', name, email, message }),
+      });
+      setStatus('sent');
+      setName('');
+      setEmail('');
+      setMessage('');
+    } catch {
+      setStatus('error');
+    }
   }
 
   return (
-    <section data-scroll-section id="contact" className="">
-      <div className="container px-5 py-10 mx-auto lg:flex mb-24">
-        <div className="shrink-0 w-full max-h-full lg:w-1/2 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
-          <iframe
-            width="100%"
-            height="100%"
-            title="map"
-            className="absolute inset-0"
-            frameBorder={0}
-            marginHeight={0}
-            marginWidth={0}
-            style={{ filter: "opacity(0.7)" }}
-            src="https://www.google.com/maps/embed/v1/place?q=Gurgaon&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
-          />
-          <div className="bg-gray-900 relative flex flex-wrap py-10 rounded shadow-md ">
-            <div className="w-1/2 px-6 ">
-              <h2 className="title-font font-semibold text-white tracking-widest text-2xl lg:text-xs">
-                ADDRESS
-              </h2>
-              <p className="mt-1 text-white text-xl lg:text-xs">
-               Sector 40, Gurgaon <br />
-                Haryana 122002
-              </p>
-            </div>
-            <div className="lg:w-1/2 px-6 mt-4 text-2xl lg:text-xs lg:mt-0">
-              <h2 className="title-font font-semibold text-white tracking-widest text-2xl lg:text-xs">
-                EMAIL
-              </h2>
-              <p className="text-indigo-400 leading-relaxed">
-                hardikralhan66@gmail.com
-              </p>
-              <h2 className="title-font text-2xl lg:text-xs font-semibold text-white tracking-widest mt-4">
-                PHONE
-              </h2>
-              <p className="leading-relaxed text-indigo-400">+91991252862</p>
-            </div>
-          </div>
-        </div>
-        <form
-          netlify
-          name="contact"
-          onSubmit={handleSubmit}
-          className="w-full flex flex-col ml-auto md:py-8 mt-8 md:mt-0">
-          <h2 data-scroll data-scroll-direction="horizontal" data-scroll-speed="-1"
-           className="text-white lg:text-6xl text-7xl mb-1 font-bold">
-            Hire Me
+    <section id="contact" className="relative overflow-hidden">
+      <div className="section-container">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
+          <p className="section-label mb-3">Let's Work Together</p>
+          <h2 className="section-title mb-4">
+            Get In <span className="gradient-text">Touch</span>
           </h2>
-          <p data-scroll data-scroll-direction="horizontal" data-scroll-speed="1" className="leading-relaxed mb-5 text-slate-400 text-4xl lg:text-2xl">
-          /* <br/>I am available for full time, part time and freelance work. Connect with me via email: <i><b>hardikralhan66@gmail.com</b></i><br /> */
+          <div className="w-16 h-1 rounded-full mx-auto" style={{ background: 'linear-gradient(90deg, #7c3aed, #06b6d4)' }} />
+          <p className="text-gray-400 mt-6 max-w-lg mx-auto text-sm leading-relaxed">
+            I'm open to full-time, contract, and freelance opportunities in AI engineering.
+            Drop me a message and I'll get back to you within 24 hours.
           </p>
-          <div className="relative mb-4">
-            <label htmlFor="name" className="leading-7 lg:text-xl text-4xl text-gray-400">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={name}
-              className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900  outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <div className="relative mb-4">
-            <label htmlFor="email" className="leading-7 lg:text-xl text-4xl text-gray-400">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              onChange={(e) =>{
-                setEmail(e.target.value); 
-                // e.preventDefault()   
-              } 
-              }
-            />
-          </div>
-          <div className="relative mb-4">
-            <label
-              htmlFor="message"
-              className="leading-7 lg:text-xl text-4xl text-gray-400">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={message}
-              className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-              onChange={(e) => setMessage(e.target.value)}
-            />
-          </div>
-          <button
-            type="submit"
-            className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded lg:text-xl text-3xl">
-            Submit
-          </button>
-        </form>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+          {/* Left — contact info */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col gap-6"
+          >
+            <div>
+              <h3 className="font-space font-bold text-white text-xl mb-2">Say Hello!</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Whether you have a project in mind, want to discuss AI architectures, or just want to connect — I'd love to hear from you.
+              </p>
+            </div>
+
+            {/* Contact cards */}
+            <div className="flex flex-col gap-3">
+              {contactInfo.map(({ icon, label, value, href, color }) => (
+                <div
+                  key={label}
+                  className="flex items-center gap-4 p-4 rounded-xl transition-all duration-300"
+                  style={{ background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(255,255,255,0.06)' }}
+                >
+                  <div
+                    className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                    style={{ background: `${color}18`, color, border: `1px solid ${color}30` }}
+                  >
+                    {icon}
+                  </div>
+                  <div>
+                    <p className="text-gray-500 text-xs font-mono">{label}</p>
+                    {href ? (
+                      <a href={href} className="text-gray-200 text-sm font-medium hover:text-white transition-colors">
+                        {value}
+                      </a>
+                    ) : (
+                      <p className="text-gray-200 text-sm font-medium">{value}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Social */}
+            <div>
+              <p className="text-gray-500 text-xs font-mono mb-3">{'// Find me online'}</p>
+              <div className="flex gap-4">
+                <a
+                  href="https://github.com/hardikralhan"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg glass border border-white/10 text-gray-400 hover:text-white transition-all text-sm"
+                >
+                  <AiFillGithub className="text-lg" /> GitHub
+                </a>
+                <a
+                  href="https://linkedin.com/in/hardikralhan"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg glass border border-white/10 text-gray-400 hover:text-primary-light transition-all text-sm"
+                >
+                  <AiFillLinkedin className="text-lg" /> LinkedIn
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right — form */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <form
+              name="contact"
+              netlify="true"
+              onSubmit={handleSubmit}
+              className="gradient-border p-6 flex flex-col gap-5"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="name" className="text-gray-400 text-xs font-mono uppercase tracking-wider">
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  placeholder="John Doe"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="form-input"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="email" className="text-gray-400 text-xs font-mono uppercase tracking-wider">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="john@company.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="form-input"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="message" className="text-gray-400 text-xs font-mono uppercase tracking-wider">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  placeholder="Tell me about your project..."
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  rows={5}
+                  className="form-input resize-none"
+                />
+              </div>
+
+              {status === 'sent' && (
+                <div className="px-4 py-3 rounded-lg text-accent text-sm font-mono border border-accent/30 bg-accent/10">
+                  ✓ Message sent! I'll reply within 24 hours.
+                </div>
+              )}
+              {status === 'error' && (
+                <div className="px-4 py-3 rounded-lg text-red-400 text-sm font-mono border border-red-400/30 bg-red-400/10">
+                  ✗ Something went wrong. Email me directly instead.
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-primary-dark disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold rounded-lg text-sm transition-all duration-300 glow-purple"
+              >
+                {status === 'sending' ? (
+                  <>
+                    <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    Sending…
+                  </>
+                ) : (
+                  <>
+                    <HiPaperAirplane className="text-base" />
+                    Send Message
+                  </>
+                )}
+              </button>
+            </form>
+          </motion.div>
+        </div>
       </div>
+
+      {/* Bg accents */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none -z-10"
+        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.04) 0%, transparent 70%)' }} />
     </section>
   );
 }
